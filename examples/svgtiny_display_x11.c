@@ -65,11 +65,15 @@ int main(int argc, char *argv[])
 	size_t n;
 	svgtiny_code code;
 
+#ifndef DEBUG_MODE
 	if (argc != 2) {
 		fprintf(stderr, "Usage: %s FILE\n", argv[0]);
 		return 1;
 	}
 	svg_path = argv[1];
+#else
+	svg_path = "img/apple.svg";
+#endif
 
 	/* load file into memory buffer */
 	fd = fopen(svg_path, "rb");
